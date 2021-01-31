@@ -1,2 +1,34 @@
-<h1>Book#show</h1>
-<p>Find me in app/views/book/show.html.erb</p>
+<% cache_if cache?, [@book, @book.author, @book.publisher] do %>
+  <h1><%= @book.title %></h1>
+  <%= image_tag book.image_url %>
+
+  <% cache_if cache?, @book.author do %>
+    <p>
+      <b>Autor:</b> <%= @book.author.name %>
+    </p>
+  <% end -%>
+
+  <% cache_if cache?, @book.publisher do %>
+    <p>
+      <b>Editora:</b> <%= @book.publisher.name %>
+    </p>
+  <% end -%>
+
+  <% cache_if cache?, @book do %>
+    <p>
+      <b>Gênero:</b> <%= @book.genre.name %>
+    </p>
+
+    <p>
+      <b>Número de páginas:</b> <%= @book.num_pages %>
+    </p>
+
+    <p>
+      <b>Avaliação média:</b> <%= @book.rating %>
+    </p>
+
+    <p>
+      <b>Data da publicação:</b> <%= @book.publication_date.present? l(@book.publication_date) : "Sem informação" %>
+    </p>
+  <% end -%>
+<% end -%>

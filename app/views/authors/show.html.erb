@@ -1,2 +1,14 @@
-<h1>Author#show</h1>
-<p>Find me in app/views/author/show.html.erb</p>
+<% cache_unless !cache?, @author do %>
+  <h1><%= @author.name %></h1>
+  <p>
+    <b>Número de livros publicados:</b> <%= @author.books.count %>
+  </p>
+  <% cache @author.contacts do %>
+    <div>
+      <h3>Dados de contato</h3>
+      <% @author.contacts.each do |contact| %>
+        <p><b><%= contact.contact_type %>:</b> <%= contact.contact_value %></p>
+      <% end -%>
+    </div>
+  <% end -%>
+<% end -%>
