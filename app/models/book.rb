@@ -1,5 +1,5 @@
 class Book < ApplicationRecord
-  belongs_to :author
+  belongs_to :author, touch: true
   belongs_to :publisher
   belongs_to :genre
 
