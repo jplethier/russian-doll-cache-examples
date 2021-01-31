@@ -1,24 +1,7 @@
-# README
+# Cache Example Project
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Application created as an example of rails view caching using russian doll caching, to be used as example on [this blog post](www.medium.com/@jplethier)
 
-Things you may want to cover:
+### Sample DataSet
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Sample dataset of books downloaded from [Kaggle](https://www.kaggle.com/jealousleopard/goodreadsbooks)
