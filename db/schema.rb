@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_31_182824) do
+ActiveRecord::Schema.define(version: 2021_01_31_185936) do
 
   create_table "addresses", force: :cascade do |t|
     t.string "country"
@@ -38,6 +38,9 @@ ActiveRecord::Schema.define(version: 2021_01_31_182824) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "genre_id", null: false
     t.integer "publisher_id", null: false
+    t.float "rating"
+    t.integer "num_pages"
+    t.date "publication_date"
     t.index ["author_id"], name: "index_books_on_author_id"
     t.index ["genre_id"], name: "index_books_on_genre_id"
     t.index ["publisher_id"], name: "index_books_on_publisher_id"

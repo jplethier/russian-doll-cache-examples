@@ -3,5 +3,5 @@ class Contact < ApplicationRecord
 
   enum contact_type: %i[whatsapp phone email]
 
-  validats :contact_type, :contact_value, presence: true
+  validates :contact_type, :contact_value, presence: true
 end
