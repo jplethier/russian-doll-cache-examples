@@ -1,0 +1,20 @@
+<h1>Authors</h1>
+<table>
+  <thead>
+    <th>Nome</th>
+    <th>Número de livros</th>
+    <th>Última publicação</th>
+    <th></th>
+  </thead>
+  <tbody>
+    <% @authors.each do |author| %>
+      <tr>
+        <td><%= author.name %></td>
+        <td><%= author.books.count %></td>
+        <% last_publication_date = author.books.maximum(:publication_date) %>
+        <td><%= last_publication_date.present? ? l(last_publication_date) : "Sem informação" %></td>
+        <td><%= link_to "Visualizar", author_path(author) %></td>
+      </tr>
+    <% end -%>
+  </tbody>
+</table>

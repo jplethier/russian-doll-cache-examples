@@ -1,2 +1,5 @@
-<h1>Author#index</h1>
-<p>Find me in app/views/author/index.html.erb</p>
+<% if cache? %>
+  <%= render "index_with_cache" %>
+<% else %>
+  <%= render "index_without_cache" %>
+<% end -%>
