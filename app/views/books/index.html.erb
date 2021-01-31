@@ -1,2 +1,28 @@
-<h1>Book#index</h1>
-<p>Find me in app/views/book/index.html.erb</p>
+<h1>Authors</h1>
+
+<%= cache_if cache?, @books do %>
+  <table>
+    <thead>
+      <th>Imagem</th>
+      <th>Título</th>
+      <th>Autor</th>
+      <th>Editora</th>
+      <th>Data da publicação</th>
+      <th></th>
+    </thead>
+    <tbody>
+      <% @books.each do |book| %>
+        <%= cache [book, book.author, book.publisher] do %>
+          <tr>
+            <td><%= image_tag book.image_url %></td>
+            <td><%= book.title %></td>
+            <td><%= book.author.name %></td>
+            <td><%= book.publisher.name %></td>
+            <td><%= book.publication_date.present? ? l(book.publication_date) : "Sem informação" %></td>
+            <td><%= link_to "Visualizar", book_path(book) %></td>
+          </tr>
+        <% end -%>
+      <% end -%>
+    </tbody>
+  </table>
+<% end -%>
